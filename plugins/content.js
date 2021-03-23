@@ -52,9 +52,13 @@ async function getMeta(filename) {
 		const img = start.match(/<img(?: [^>]*?)? src=(['"]?)(.*?)\1(?: [^>]*?)?[ /]*>/);
 		if (img) meta.image = img[2];
 	}
-	let stripped = content.replace(/(?:<(figcaption)[^>]*?>.*?<\/\1>|<.*?>|(?:^|\n)>)/g, '').trim();
-	stripped = stripped.replace(/^[^\n]*(photo by|courtesy of|source:)[^\n]*/i, '');
-	meta.description = meta.description || stripped.match(/[^\n]+/g)[0];
+	if (!meta.description) {
+		let stripped = content.replace(/(?:<(figcaption)[^>]*?>.*?<\/\1>|<.*?>|(?:^|\n)>)/g, '').trim();
+		stripped = stripped.replace(/^[^\n]*(photo by|courtesy of|source:)[^\n]*/i, '');
+		let desc = stripped.match(/[^\n]+/g)[0];
+		if (desc && desc.length > 200) desc = desc.slice(0, 199) + '…';
+		meta.description = desc;
+	}
 	if (meta.published.replace(/:\d\d:\d\d/, '') === meta.updated.replace(/:\d\d:\d\d/, '')) delete meta.updated;
 	if (meta.description === meta.meta_description) delete meta.meta_description;
 	if (meta.title === meta.meta_title) delete meta.meta_title;
