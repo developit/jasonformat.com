@@ -29,7 +29,7 @@ hydrate(<App />);
 export async function prerender(data) {
 	const fs = await eval('u=>import(u)')('fs/promises');
 	globalThis.fetch = async url => {
-		const text = () => fs.readFile('dist/' + url, 'utf-8');
+		const text = () => fs.readFile('dist/' + String(url).replace(/^\//, ''), 'utf-8');
 		return { text, json: () => text().then(JSON.parse) };
 	};
 	const { default: prerender } = await import('preact-iso/prerender');
