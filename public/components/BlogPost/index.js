@@ -1,8 +1,6 @@
 import { lazy } from 'preact-iso';
-import posts from 'content:../../content/blog';
+// import posts from 'content:../../content/blog';
 import '../../styles/prism.css';
-
-// const fetchMarkdown = m => fetch(m.default || m).then(r => r.text());
 
 function DisplayBlogPost({ html, meta }) {
 	const pub = new Date(meta.published);
@@ -39,18 +37,8 @@ export default function BlogPost({ slug = '', ...props }) {
 	let C = loaders[slug];
 	if (!C) {
 		C = loaders[slug] = lazy(async () => {
-			// let mod;
-			// if (process.env.NODE_ENV === 'development') {
-			// 	const id = `/@markdown/content/blog/${slug}.md`;
-			// 	mod = import(id);
-			// } else {
-			// 	mod = import(`./content/blog/${slug}.md`);
-			// }
-			//
-			// mod = import(`markdown:./content/blog/${slug}.md`);
-			// mod = posts.find(p => p.name === slug).load();
-			// return mod.then(fetchMarkdown).then(html => {
-			const { url } = posts.find(p => p.name === slug);
+			// const { url } = posts.find(p => p.name === slug);
+			const url = `/content/blog/${slug}.md`;
 			const res = await fetch(url);
 			const html = await res.text();
 			const parsed = extractMeta(html);
