@@ -1,0 +1,54 @@
+.jumbotron {
+	position: relative;
+	min-height: 60vh;
+	margin-top: -50px;
+	padding: 100px 20px 50px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: linear-gradient(to bottom, rgba(0,30,60,0.4), rgba(40,0,20,0.4));
+	text-shadow: 0 0 1px var(--color-page-bg);
+	// color: var(--color-heading);
+	overflow: hidden;
+
+	& > * {
+		z-index: 1;
+	}
+}
+
+.cover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	transform-origin: 0;
+	background-size: cover;
+	filter: blur(1px) brightness(0.5) contrast(0.5) hue-rotate(240deg);
+	opacity: 0.5;
+	z-index: 0;
+}
+
+.jumbotron h1 {
+	margin: 0;
+	font-size: 11.5vw;
+	font-weight: 300;
+	line-height: 1;
+}
+
+.jumbotron p {
+	font-size: 2.8vw;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+	.jumbotron h1 {
+		font-size: 69px;
+	}
+	.jumbotron p {
+		font-size: 16.8px;
+	}
+}

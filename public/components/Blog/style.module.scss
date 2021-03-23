@@ -1,0 +1,95 @@
+.blog {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.blog footer {
+	display: flex;
+	padding: 10px;
+	justify-content: center;
+
+	a {
+		position: relative;
+		padding: .25em 1.5rem;
+		margin: 0 1em;
+		background: var(--color-link-light);
+		border: 2px solid var(--color-link);
+		color: var(--color-page-bg);
+		border-radius: 9px;
+		text-decoration: none;
+		font-size: 120%;
+		z-index: 0;
+	}
+	a:hover,
+	a:focus {
+		background: var(--color-link);
+	}
+	a[disabled] {
+		opacity: 0.3;
+		filter: grayscale(0.8) brightness(1.2) contrast(0.8);
+		pointer-events: none;
+	}
+}
+
+.post {
+	position: relative;
+	display: flex;
+	padding: 0;
+	margin: 1rem auto;
+	align-items: center;
+	overflow: hidden;
+
+	& > div {
+		flex: 1;
+	}
+
+	a {
+		display: block;
+		padding: 20px;
+		margin: 0;
+		font-size: 150%;
+		color: var(--color-link);
+		text-decoration: none;
+	}
+	a:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 9px;
+		z-index: 1;
+	}
+	a:hover:after {
+		background-color: var(--color-tint);
+		box-shadow: inset 0 0 0 1px var(--color-tint);
+	}
+
+	p {
+		position: relative;
+		top: -20px;
+		margin: 0;
+		padding: 0 20px;
+		font-size: 85%;
+		opacity: 0.6;
+		line-height: 1.3;
+	}
+
+	img {
+		max-width: 200px;
+		max-height: 5em;
+		border-radius: 5px;
+		margin: 0 10px;
+		transform: rotate(-2deg) scale(0.8);
+		filter: contrast(0.8) brightness(1.2);
+		transition: transform 200ms ease, filter 200ms ease;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	&:hover img {
+		filter: none;
+		transform: rotate(-1deg);
+	}
+}

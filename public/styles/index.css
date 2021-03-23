@@ -1,0 +1,249 @@
+:root {
+	--header-height: 50px;
+	--header-bg: rgba(34, 37, 41, 0.9);
+	--header-fg: #fff;
+	--color-page-bg: #fff;
+	--color-text: #222;
+	--color-tint: rgba(102, 58, 184, 0.1);
+	--color-heading: black;
+	--color-heading-light: #666;
+	--color-brand: #673ab8;
+	--color-link: #673ab8;
+	--color-link-light: #7f53d1;
+	--color-btn: #673ab8;
+	--color-btn-secondary: #673ab8;
+	--color-btn-background: #eee;
+	--color-hr: #f8f8f8;
+	--color-quote-bg: #ebf6ff;
+	--color-quote-border: #5aa8ff;
+	--color-quote-text: #444;
+	--color-warn-bg: #ffee5b;
+	--color-table-border: #ccc;
+	--color-table-even-bg: white;
+	--color-table-odd-bg: #f8f8f8;
+	--color-code-inline-bg: #f8f8f8;
+	--color-code-inline-border: #eaeaea;
+	--color-code-bg: #f7fafe;
+	--color-next-link: #aaa;
+	--color-sidebar-divider: #eee;
+	--color-sidebar-bg: #fafafa;
+	--color-sidebar-bg-active: #f3f3f3;
+	--color-sidebar-link-active: #673ab8;
+	--color-sidebar-link: #555;
+	--color-footer-lang-divider: #aaa;
+	--color-footer-lang: #673ab8;
+	--color-footer-link: #673ab8;
+	--color-footer-text: #555;
+	--color-footer-bg: #f2f2f2;
+	--color-footer-border: #ddd;
+	--code-block-filter: hue-rotate(180deg) invert(1) saturate(2) brightness(0.9) contrast(.9);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--header-bg: rgba(23, 29, 36, 0.9);
+		--header-fg: #ddd;
+		--color-page-bg: #222529;
+		--color-text: #ddd;
+		--color-tint: rgba(143, 93, 236, 0.1);
+		--color-heading: #fff;
+		--color-heading-light: #a3a3a3;
+		--color-link: #ae80ff;
+		--color-link-light: #9a5fff;
+		--color-btn: #673ab8;
+		--color-btn-secondary: white;
+		--color-btn-background: #eee;
+		--color-hr: #444;
+		--color-quote-bg: #29475f;
+		--color-quote-border: #3f6b9c;
+		--color-quote-text: #c5c5c5;
+		--color-warn-bg: #f2d900;
+		--color-table-border: #575757;
+		--color-table-even-bg: #242424;
+		--color-table-odd-bg: #2f2f2f;
+		--color-code-inline-bg: #2b313c;
+		--color-code-inline-border: #5e5e5e;
+		--color-code-bg: #252931;
+		--color-next-link: #666;
+		--color-sidebar-divider: #4f4f4f;
+		--color-sidebar-bg: #171717;
+		--color-sidebar-bg-active: #242424;
+		--color-sidebar-link-active: #ae80ff;
+		--color-sidebar-link: #b0b0b0;
+		--color-footer-lang-divider: #444;
+		--color-footer-lang: #ae80ff;
+		--color-footer-link: #ae80ff;
+		--color-footer-text: #999;
+		--color-footer-bg: #1b1b1b;
+		--color-footer-border: #1b1b1b;
+		--code-block-filter: none;
+	}
+}
+
+
+html[dark] {
+	--header-bg: rgba(23, 29, 36, 0.9);
+	--header-fg: #ddd;
+	--color-page-bg: #222529;
+	--color-text: #ddd;
+	--color-tint: rgba(143, 93, 236, 0.1);
+	--color-heading: #fff;
+	--color-heading-light: #cde;
+	--color-link: #ae80ff;
+	--color-link-light: #9a5fff;
+	--color-btn: #673ab8;
+	--color-btn-secondary: white;
+	--color-btn-background: #eee;
+	--color-hr: #444;
+	--color-quote-bg: #29475f;
+	--color-quote-border: #3f6b9c;
+	--color-quote-text: #c5c5c5;
+	--color-warn-bg: #f2d900;
+	--color-table-border: #575757;
+	--color-table-even-bg: #242424;
+	--color-table-odd-bg: #2f2f2f;
+	--color-code-inline-bg: #2b313c;
+	--color-code-inline-border: #3f4757;
+	--color-code-bg: #252931;
+	--color-next-link: #666;
+	--color-sidebar-divider: #4f4f4f;
+	--color-sidebar-bg: #171717;
+	--color-sidebar-bg-active: #242424;
+	--color-sidebar-link-active: #ae80ff;
+	--color-sidebar-link: #b0b0b0;
+	--color-footer-lang-divider: #444;
+	--color-footer-lang: #ae80ff;
+	--color-footer-link: #ae80ff;
+	--color-footer-text: #999;
+	--color-footer-bg: #1b1b1b;
+	--color-footer-border: #1b1b1b;
+	--code-block-filter: contrast(1.2);
+}
+
+html,
+body {
+	margin: 0;
+	background: var(--color-page-bg);
+	color: var(--color-text);
+	font-family: system-ui, 'Segoe UI', 'Roboto', 'Fira Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.7;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+pre,
+code {
+	font-family: 'Source Code Pro', 'source-code-pro', Menlo, Consolas, Monaco, 'Andale Mono', 'Courier New', monospace;
+	font-size: 0.9rem;
+	font-weight: 400;
+}
+
+svg {
+	fill: currentColor;
+}
+svg[outline] {
+	fill: none;
+	stroke: currentColor;
+}
+
+.app > section {
+	margin-top: 50px;
+}
+
+.content {
+	max-width: 1000px;
+	margin: auto;
+	padding: 2em;
+}
+
+.post .content {
+	position: relative;
+	margin-top: 10px;
+	padding-top: 20px;
+	background: var(--color-page-bg);
+	border-radius: 9px;
+	z-index: 1;
+}
+@media (max-width: 1000px) {
+	.post .content {
+		background: var(--color-page-bg);
+		border-radius: 0;
+	}
+}
+.post-meta {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	padding: 50px 0 0;
+	height: 50vh;
+	max-height: 300px;
+	background: linear-gradient(to bottom, rgba(0,30,60,0.8), rgba(40,0,20,0.8));
+	color: #fff;
+	text-shadow: 0 .5px 1.5px #000;
+	line-height: 1.3;
+	text-align: center;
+}
+.post-meta img {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 50vh;
+	max-height: 300px;
+	object-fit: cover;
+	aspect-ratio: 1;
+	filter: contrast(0.6) brightness(0.5) saturate(1.2);
+}
+.post-meta h1 {
+	max-width: 1000px;
+    margin: 0 auto;
+	padding: 2rem;
+	flex: 1 1 100%;
+	font-size: 2.6rem;
+    font-weight: 300;
+	z-index: 1;
+}
+.post-meta time {
+	padding: .5rem 1rem;
+	border-top: 1px solid rgba(255,255,255,0.2);
+	margin: -1em auto 0;
+	white-space: nowrap;
+	opacity: 0.8;
+	font-weight: 300;
+	z-index: 1;
+}
+
+.post > footer {
+	padding: 2rem;
+	margin: 0 auto;
+	background: var(--color-footer-bg);
+	color: var(--color-heading-light);
+}
+
+.post > footer h5 {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: var(--color-heading);
+}
+
+.post > footer p {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 2rem 1rem;
+}
+
+.post > footer a {
+	color: var(--color-brand);
+}
