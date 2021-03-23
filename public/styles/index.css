@@ -10,9 +10,6 @@
 	--color-brand: #673ab8;
 	--color-link: #673ab8;
 	--color-link-light: #7f53d1;
-	--color-btn: #673ab8;
-	--color-btn-secondary: #673ab8;
-	--color-btn-background: #eee;
 	--color-hr: #f8f8f8;
 	--color-quote-bg: #ebf6ff;
 	--color-quote-border: #5aa8ff;
@@ -25,17 +22,7 @@
 	--color-code-inline-border: #eaeaea;
 	--color-code-bg: #f7fafe;
 	--color-next-link: #aaa;
-	--color-sidebar-divider: #eee;
-	--color-sidebar-bg: #fafafa;
-	--color-sidebar-bg-active: #f3f3f3;
-	--color-sidebar-link-active: #673ab8;
-	--color-sidebar-link: #555;
-	--color-footer-lang-divider: #aaa;
-	--color-footer-lang: #673ab8;
-	--color-footer-link: #673ab8;
-	--color-footer-text: #555;
 	--color-footer-bg: #f2f2f2;
-	--color-footer-border: #ddd;
 	--code-block-filter: hue-rotate(180deg) invert(1) saturate(2) brightness(0.9) contrast(.9);
 }
 
@@ -50,9 +37,6 @@
 		--color-heading-light: #a3a3a3;
 		--color-link: #ae80ff;
 		--color-link-light: #9a5fff;
-		--color-btn: #673ab8;
-		--color-btn-secondary: white;
-		--color-btn-background: #eee;
 		--color-hr: #444;
 		--color-quote-bg: #29475f;
 		--color-quote-border: #3f6b9c;
@@ -66,16 +50,7 @@
 		--color-code-bg: #252931;
 		--color-next-link: #666;
 		--color-sidebar-divider: #4f4f4f;
-		--color-sidebar-bg: #171717;
-		--color-sidebar-bg-active: #242424;
-		--color-sidebar-link-active: #ae80ff;
-		--color-sidebar-link: #b0b0b0;
-		--color-footer-lang-divider: #444;
-		--color-footer-lang: #ae80ff;
-		--color-footer-link: #ae80ff;
-		--color-footer-text: #999;
 		--color-footer-bg: #1b1b1b;
-		--color-footer-border: #1b1b1b;
 		--code-block-filter: none;
 	}
 }
@@ -91,9 +66,6 @@ html[dark] {
 	--color-heading-light: #cde;
 	--color-link: #ae80ff;
 	--color-link-light: #9a5fff;
-	--color-btn: #673ab8;
-	--color-btn-secondary: white;
-	--color-btn-background: #eee;
 	--color-hr: #444;
 	--color-quote-bg: #29475f;
 	--color-quote-border: #3f6b9c;
@@ -106,17 +78,7 @@ html[dark] {
 	--color-code-inline-border: #3f4757;
 	--color-code-bg: #252931;
 	--color-next-link: #666;
-	--color-sidebar-divider: #4f4f4f;
-	--color-sidebar-bg: #171717;
-	--color-sidebar-bg-active: #242424;
-	--color-sidebar-link-active: #ae80ff;
-	--color-sidebar-link: #b0b0b0;
-	--color-footer-lang-divider: #444;
-	--color-footer-lang: #ae80ff;
-	--color-footer-link: #ae80ff;
-	--color-footer-text: #999;
 	--color-footer-bg: #1b1b1b;
-	--color-footer-border: #1b1b1b;
 	--code-block-filter: contrast(1.2);
 }
 
