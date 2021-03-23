@@ -84,7 +84,9 @@
 		top: 50%;
 		height: 20px;
 		width: 20px;
-		font-size: 12px;
+		font-size: 10px !important;
+		text-indent: -2px;
+		line-height: 22px;
 		text-align: center;
 		transform: translate(var(--x, 0), -50%);
 		background: var(--color-brand);

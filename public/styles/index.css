@@ -161,6 +161,11 @@ svg[outline] {
 	margin: auto;
 	padding: 2em;
 }
+@media (max-width: 660px) {
+	.content {
+		padding: 1em;
+	}
+}
 
 .post .content {
 	position: relative;
