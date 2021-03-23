@@ -59,11 +59,12 @@
 html[dark] {
 	--header-bg: rgba(23, 29, 36, 0.9);
 	--header-fg: #ddd;
-	--color-page-bg: #222529;
+	--color-page-bg: #222427;
 	--color-text: #ddd;
 	--color-tint: rgba(143, 93, 236, 0.1);
 	--color-heading: #fff;
 	--color-heading-light: #cde;
+	--color-brand: #ae80ff;
 	--color-link: #ae80ff;
 	--color-link-light: #9a5fff;
 	--color-hr: #444;
@@ -71,15 +72,19 @@ html[dark] {
 	--color-quote-border: #3f6b9c;
 	--color-quote-text: #c5c5c5;
 	--color-warn-bg: #f2d900;
-	--color-table-border: #575757;
-	--color-table-even-bg: #242424;
-	--color-table-odd-bg: #2f2f2f;
+	--color-table-border: #363c42;
+	--color-table-even-bg: #1e2125;
+	--color-table-odd-bg: #24272b;
 	--color-code-inline-bg: #2b313c;
 	--color-code-inline-border: #3f4757;
 	--color-code-bg: #252931;
 	--color-next-link: #666;
 	--color-footer-bg: #1b1b1b;
 	--code-block-filter: contrast(1.2);
+}
+
+html[dark] .md img {
+	filter: invert(.862745) hue-rotate(180deg);
 }
 
 html,
