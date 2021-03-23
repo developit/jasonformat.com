@@ -120,24 +120,15 @@ function contentRollupPlugin({ cwd, prod, ...opts }) {
 					if (item[i] != null) str += `${i}: ${JSON.stringify(item[i])}, `;
 				}
 				const url = 'markdown:./' + path.posix.relative(path.dirname(id), path.resolve(id, item.name)) + '.md';
-				// const url = 'markdown:/' + path.posix.relative(cwd, path.resolve(id, item.name)) + '.md';
-				str += `url: url${imports.push(url) - 1} `;
-				// str += `load: () => import(${JSON.stringify(url)}) `;
+				imports.push(url);
+				// str += `url: url${imports.push(url) - 1} `;
 				return str + '}';
 			};
-			// const serializeItem = item => JSON.stringify(item);
 
 			const code = 'export default [' + data.map(serializeItem).join(',\n') + '];';
-			const pre = imports.map((url, index) => `import url${index} from ${JSON.stringify(url)};`).join('\n') + '\n';
+			// const pre = imports.map((url, index) => `import url${index} from ${JSON.stringify(url)};`).join('\n') + '\n';
+			const pre = imports.map((url, index) => `import ${JSON.stringify(url)};`).join('\n') + '\n';
 			return pre + code;
-
-			// const fileId = this.emitFile({
-			// 	type: 'asset',
-			// 	name: path.relative(cwd || '.', id),
-			// 	source: marked(await fs.readFile(id, 'utf-8'), opts)
-			// });
-			// this.addWatchFile(id);
-			// return `export default import.meta.ROLLUP_FILE_URL_${fileId}`;
 		}
 	};
 }
