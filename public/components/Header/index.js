@@ -1,5 +1,5 @@
 import { useMemo, useReducer, useState, useCallback } from 'preact/hooks';
-import config from '../../config.js';
+import config from '../../config.json';
 import styles from './style.module.scss';
 
 function useDarkMode() {

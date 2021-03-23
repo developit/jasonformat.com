@@ -1,5 +1,5 @@
 import Blog from '../Blog/index.js';
-import config from '../../config.js';
+import config from '../../config.json';
 import styles from './style.module.scss';
 
 export default function Home() {

@@ -1,6 +1,6 @@
 // import posts from 'dir:../../content/blog';
 import posts from 'content:../../content/blog';
-import config from '../../config.js';
+import config from '../../config.json';
 import styles from './style.module.scss';
 
 export default function Blog({ page = 0, count = config.postsPerPage, moreText = '' }) {
