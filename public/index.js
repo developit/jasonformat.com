@@ -4,6 +4,7 @@ import Home from './components/Home/index.js';
 import NotFound from './components/NotFound/index.js';
 import Blog from './components/Blog/index.js';
 import BlogPost from './components/BlogPost/index.js';
+import './analytics.js';
 import './styles/markdown.scss';
 
 export function App() {
