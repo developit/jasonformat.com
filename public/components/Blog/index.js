@@ -13,13 +13,14 @@ export default function Blog({ page = 0, count = config.postsPerPage, moreText =
 		<section class={'content ' + styles.blog}>
 			{posts.slice(start, start + count).map(post => {
 				const url = '/' + post.name;
+				const thumb = post.image && post.image.replace('image/upload/', 'image/upload/c_thumb,w_400,h_200,g_face/');
 				return (
 					<div class={styles.post}>
 						<div>
 							<a href={url}>{post.title || post.name}</a>
 							<p>{post.description}</p>
 						</div>
-						{post.image && <img src={post.image} alt="" />}
+						{thumb && <img src={thumb} alt="" loading="lazy" width="400" height="200" />}
 					</div>
 				);
 			})}

@@ -8,7 +8,7 @@ function DisplayBlogPost({ html, meta }) {
 	return (
 		<div class="post">
 			<div class="post-meta">
-				{meta.image && <img src={meta.image} alt="" />}
+				{meta.image && <img src={meta.image} alt="" decoding="async" />}
 				<h1>{meta.title}</h1>
 				<time title={pub + ''}>{`${month} ${day}, ${year}`}</time>
 			</div>
