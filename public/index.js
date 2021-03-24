@@ -7,13 +7,27 @@ import BlogPost from './components/BlogPost/index.js';
 import './analytics.js';
 import './styles/markdown.scss';
 
+let didPush = false;
+if (typeof window !== 'undefined') {
+	let o = history.pushState;
+	history.pushState = function () {
+		didPush = true;
+		return o.apply(history, arguments);
+	};
+}
+
+function resetScroll() {
+	if (didPush) window.scrollTo(0, 0);
+	didPush = false;
+}
+
 export function App() {
 	return (
 		<LocationProvider>
 			<div class="app">
 				<Header />
 				<ErrorBoundary>
-					<Router>
+					<Router onLoadEnd={resetScroll}>
 						<Home path="/" />
 						<Blog path="/blog/:page?" />
 						<BlogPost path="/:slug" />
