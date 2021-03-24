@@ -13,7 +13,8 @@ export default function Blog({ page = 0, count = config.postsPerPage, moreText =
 		<section class={'content ' + styles.blog}>
 			{posts.slice(start, start + count).map(post => {
 				const url = '/' + post.name;
-				const thumb = post.image && post.image.replace('image/upload/', 'image/upload/c_thumb,w_400,h_200,g_face/');
+				const thumb =
+					post.image && post.image.replace('image/upload/', 'image/upload/c_thumb,f_auto,q_60,g_face,h_200,w_400/');
 				return (
 					<div class={styles.post}>
 						<div>
