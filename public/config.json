@@ -2,28 +2,6 @@
 	"title": "JASON Format",
 	"description": "Practical JavaScript and the occasional accidental module.",
 	"logo": "/assets/icon.png",
-	"navigation": [
-		{
-			"label": "Home",
-			"url": "/"
-		},
-		{
-			"label": "Preact",
-			"url": "/tag/preact/"
-		},
-		{
-			"label": "Architecture",
-			"url": "/tag/architecture/"
-		},
-		{
-			"label": "Ecosystem",
-			"url": "/tag/ecosystem/"
-		},
-		{
-			"label": "DOM",
-			"url": "/tag/dom/"
-		}
-	],
 	"permalinks": "/:slug/",
 	"cover": "/assets/cover.jpg",
 	"postsPerPage": 5
