@@ -27,10 +27,10 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
+	html:not([mode="light"]) {
 		--header-bg: rgba(23, 29, 36, 0.9);
 		--header-fg: #ddd;
-		--color-page-bg: #222529;
+		--color-page-bg: #222427;
 		--color-text: #ddd;
 		--color-tint: rgba(143, 93, 236, 0.1);
 		--color-heading: #fff;
@@ -56,7 +56,7 @@
 }
 
 
-html[dark] {
+html[mode="dark"] {
 	--header-bg: rgba(23, 29, 36, 0.9);
 	--header-fg: #ddd;
 	--color-page-bg: #222427;

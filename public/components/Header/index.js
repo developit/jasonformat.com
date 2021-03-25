@@ -9,10 +9,10 @@ function useDarkMode() {
 		} else if (typeof c === 'boolean') {
 			state = c;
 		} else {
+			if (state == null) state = (mq && mq.matches) || false;
 			state = state !== true;
 		}
-		if (state) document.documentElement.setAttribute('dark', '');
-		else document.documentElement.removeAttribute('dark');
+		document.documentElement.setAttribute('mode', state ? 'dark' : 'light');
 		return state;
 	}, null);
 	const mq = useMemo(() => {
