@@ -8,6 +8,7 @@ declare module 'content:*' {
 		name: string;
 		title?: string;
 		description?: string;
+		published?: string;
 		image?: string;
 		url?: string;
 		// load(): Promise<{ default: string }>;

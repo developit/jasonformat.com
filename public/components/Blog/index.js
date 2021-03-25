@@ -15,10 +15,13 @@ export default function Blog({ page = 0, count = config.postsPerPage, moreText =
 				const url = '/' + post.name;
 				const thumb =
 					post.image && post.image.replace('image/upload/', 'image/upload/c_thumb,f_auto,q_60,g_face,h_200,w_400/');
+				const pub = new Date(post.published);
+				const [, month, day, year] = pub.toDateString().split(' ');
 				return (
 					<div class={styles.post}>
 						<div>
 							<a href={url}>{post.title || post.name}</a>
+							<time title={pub + ''}>{`${month} ${day}, ${year}`}</time>
 							<p>{post.description}</p>
 						</div>
 						{thumb && <img src={thumb} alt="" loading="lazy" width="400" height="200" />}
