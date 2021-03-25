@@ -176,7 +176,6 @@ svg[outline] {
 	filter: contrast(0.6) brightness(0.5) saturate(1.2);
 }
 .post-meta h1 {
-	max-width: 1000px;
     margin: 0 auto;
 	padding: 2rem;
 	flex: 1 1 100%;
