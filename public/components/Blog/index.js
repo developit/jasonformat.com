@@ -14,7 +14,7 @@ export default function Blog({ page = 0, count = config.postsPerPage, moreText =
 			{posts.slice(start, start + count).map(post => {
 				const url = '/' + post.name;
 				const thumb =
-					post.image && post.image.replace('image/upload/', 'image/upload/c_thumb,f_auto,q_60,g_face,h_200,w_400/');
+					post.image && post.image.replace(/image\/upload\/([a-z]+_\w+(,[a-z]+_\w+)*\/)?/, 'image/upload/c_thumb,f_auto,q_60,g_face,h_200,w_400/');
 				const pub = new Date(post.published);
 				const [, month, day, year] = pub.toDateString().split(' ');
 				return (
