@@ -3,6 +3,6 @@
 	"description": "Practical JavaScript and the occasional accidental module.",
 	"logo": "/assets/icon.png",
 	"permalinks": "/:slug/",
-	"cover": "/assets/cover.jpg",
+	"cover": "/assets/cover-low.jpg",
 	"postsPerPage": 5
 }
