@@ -3,7 +3,8 @@ import posts from 'content:../../content/blog';
 import config from '../../config.json';
 import styles from './style.module.scss';
 
-export default function Blog({ page = 0, count = config.postsPerPage, moreText = '' }) {
+export default function Blog({ params = {}, count = config.postsPerPage, moreText = '' }) {
+	let { page = 0 } = params;
 	count = Math.min(posts.length, Math.max(0, Math.round(count || 5)));
 	page = Math.round(page || 0);
 	const start = Math.max(0, Math.min(posts.length - count, page * count));
