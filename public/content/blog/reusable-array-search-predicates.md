@@ -100,7 +100,7 @@ blogPosts.filter($hasTag, 'b');       // [{name:'one'…}, {name:'three'…}]
 blogPosts.filter($publishedAfter, new Date(2020, 12, 25));  // [{name:'three'…}]
 ```
 
-### Word of Warning
+### Performance, and word of warning
 
 Unfortunately, the performance of this approach is generally worse than using an Arrow Function without some additional optimization work:
 
