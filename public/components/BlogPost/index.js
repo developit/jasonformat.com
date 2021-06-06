@@ -33,7 +33,8 @@ function extractMeta(html) {
 }
 
 const loaders = {};
-export default function BlogPost({ slug = '', ...props }) {
+export default function BlogPost({ params = {}, ...props }) {
+	const { slug = '' } = params;
 	let C = loaders[slug];
 	if (!C) {
 		C = loaders[slug] = lazy(async () => {
