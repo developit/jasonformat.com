@@ -1,6 +1,6 @@
 ---
 slug: reusable-array-search-predicates
-title: Quick tip: reusable Array search predicates
+title: "Quick tip: reusable Array search predicates"
 published: 6/6/2021, 3:26:00 PM
 updated: 6/6/2021, 3:26:00 PM
 ---
