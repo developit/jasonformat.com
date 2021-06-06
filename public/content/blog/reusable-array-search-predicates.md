@@ -104,7 +104,7 @@ blogPosts.filter($publishedAfter, new Date(2020, 12, 25));  // [{name:'three'…
 
 Unfortunately, the performance of this approach is generally worse than using an Arrow Function without some additional optimization work:
 
-![benchmark results showing thisValue is slower than other functionally equivalent options except when the value is an object reused on each invocation](https://i.imgur.com/KQ4687e.png)
+<img width="478" height="655" align="center" src="https://i.imgur.com/KQ4687e.png" alt="benchmark results showing thisValue is slower than other functionally equivalent options except when the value is an object reused on each invocation">
 
 If you're doing something performance-critical, it's probably best to avoid this technique. However, it _is_ possible to squeeze some potentially valuable performance out of `thisValue` by passing a shared object reference:
 
