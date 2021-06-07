@@ -107,6 +107,10 @@ Unfortunately, the performance of this approach can be worse than using an Arrow
 
 <img width="478" height="655" src="https://i.imgur.com/KQ4687e.png" alt="benchmark results showing thisValue is slower than other functionally equivalent options except when the value is an object reused on each invocation" style="display:block; margin:auto;">
 
+<div style="text-align:center;">
+  <a href="https://esbench.com/bench/60bd52876c89f600a5700cd1" target="_blank">Benchmark on ESBench</a>
+</div>
+
 If you're doing something performance-critical, it may be best to avoid this technique. However, this could potentially be a useful approach when implementing more complex searching logic, since the context object can have any number of properties controlling comparison behavior:
 
 ```js
