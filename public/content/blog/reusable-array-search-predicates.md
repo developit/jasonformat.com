@@ -47,34 +47,35 @@ Many of the standard Array methods like `map()` and `filter()` accept a second `
 
 Any value can be provided for `thisValue` as an argument when invoking these Array methods, which gives us a way to supply an extra bit of information to a search function that wasn't available when it was created.
 It's similar to binding a function before passing it to an Array method (`.filter(fn.bind(X))`).
+One caveat to be aware of is that the value will be cast to an object - ideally, pass something that is already an object to avoid this causing equality issues or hurting performance.
 
 Using the `items` Array from the first example, we can create a function that returns `true` for items with a given `id` value, and define that value when calling `.find()`:
 
 ```js
 function itemHasId(item) {
-  return item.id === this;  // we get to supply `this` each time we call find()
+  return item.id === this.value;  // we get to supply `this` each time we call find()
 }
 
-items.find(itemHasId, 10);  // { id:10 }
-items.find(itemHasId, 42);  // { id:42 }
+items.find(itemHasId, { value: 10 });  // { id:10 }
+items.find(itemHasId, { value: 42 });  // { id:42 }
 ```
 
 This approach works for all sorts of search functions you might think of:
 
 ```js
 function isGreaterThan(item) {
-  return item > this;
+  return item > this[0];
 }
-[5,10,15,20].findIndex(isGreaterThan, 10); // 2
+[5,10,15,20].findIndex(isGreaterThan, [10]); // 2
 
 function hasSrc(element) {
-  return element.src === new URL(this, location.href).href
+  return element.src === this.href
 }
-[...document.querySelectorAll('img')].filter(hasSrc, '/assets/icon.png');
+[...document.querySelectorAll('img')].filter(hasSrc, new URL('/assets/icon.png', location.href));
 ```
 
-It's also easier to test than more typical approaches of hard-code criteria into the search function or accessing it from an outer scope.
-I sometimes prefix the name of a search predicate with a `$` to indicate that it expects a comparison value to be provided via `this`.
+It's can be easier to test this approach compared to more typical approaches that hard-code criteria into the search function or access it from an outer scope. I sometimes prefix the name of a search predicate with a `$` to indicate that it expects a comparison value to be provided via `this`.
+
 Here's a more concrete example that uses a few reusable methods to search through an Array of blog posts:
 
 ```js
@@ -87,16 +88,16 @@ const blogPosts = [
 ];
 
 // Create reusable search predicates using `this`:
-function $hasName(item) { return item.name === this }
-function $hasTag(item) { return item.tags.includes(this) }
+function $hasName(item) { return item.name === this.name }
+function $hasTag(item) { return item.tags.includes(this.tag) }
 function $publishedAfter(item) { return new Date(item.published) > this }
 
 // ...and specify the comparison value dynamically:
-blogPosts.find($hasName, 'one');      // {name:'one'…}
-blogPosts.findIndex($hasName, 'two'); // 1
+blogPosts.find($hasName, { name: 'one' });      // {name:'one'…}
+blogPosts.findIndex($hasName, { name: 'two' }); // 1
 
-blogPosts.every($hasTag, 'b');        // true
-blogPosts.filter($hasTag, 'b');       // [{name:'one'…}, {name:'three'…}]
+blogPosts.every($hasTag, { tag: 'b' });        // true
+blogPosts.filter($hasTag, { tag: 'b' });       // [{name:'one'…}, {name:'three'…}]
 blogPosts.filter($publishedAfter, new Date(2020, 12, 25));  // [{name:'three'…}]
 ```
 
