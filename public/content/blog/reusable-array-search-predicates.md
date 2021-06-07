@@ -103,24 +103,11 @@ blogPosts.filter($publishedAfter, new Date(2020, 12, 25));  // [{name:'three'…
 
 ### Performance, and word of warning
 
-Unfortunately, the performance of this approach is generally worse than using an Arrow Function without some additional optimization work:
+Unfortunately, the performance of this approach can be worse than using an Arrow Function without some restrictions. If the `thisValue` used is not an object, the cost of it being cast to one and the effect that has on later comparison will eclipse just using an inline function.
 
 <img width="478" height="655" src="https://i.imgur.com/KQ4687e.png" alt="benchmark results showing thisValue is slower than other functionally equivalent options except when the value is an object reused on each invocation" style="display:block; margin:auto;">
 
-If you're doing something performance-critical, it's probably best to avoid this technique. However, it _is_ possible to squeeze some potentially valuable performance out of `thisValue` by passing a shared object reference:
-
-```js
-function itemHasId(item) {
-  return item.id === this.value;
-}
-
-const criteria = {};
-
-items.find(itemHasId, (criteria.value = 10, criteria));
-items.find(itemHasId, (criteria.value = 42, criteria));
-```
-
-This could potentially be a useful approach when implementing more complex searching logic, since the context object can have any number of properties controlling comparison behavior:
+If you're doing something performance-critical, it may be best to avoid this technique. However, this could potentially be a useful approach when implementing more complex searching logic, since the context object can have any number of properties controlling comparison behavior:
 
 ```js
 function matches(item) {
@@ -135,11 +122,8 @@ function matches(item) {
   }
 }
 
-const criteria = {};
 function compare(property, comparator, value) {
-  criteria.property = property;
-  criteria.comparator = comparator;
-  criteria.value = value;
+  return { property, comparator, value };
 }
 
 items.filter(matches, compare('id', '>', 40));
