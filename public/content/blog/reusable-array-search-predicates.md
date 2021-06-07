@@ -111,6 +111,8 @@ Unfortunately, the performance of this approach can be worse than using an Arrow
   <a href="https://esbench.com/bench/60bd52876c89f600a5700cd1" target="_blank">Benchmark on ESBench</a>
 </div>
 
+<br>
+
 If you're doing something performance-critical, it may be best to avoid this technique. However, this could potentially be a useful approach when implementing more complex searching logic, since the context object can have any number of properties controlling comparison behavior:
 
 ```js
