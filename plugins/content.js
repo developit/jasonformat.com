@@ -69,7 +69,7 @@ async function getMeta(filename) {
 /**
  *  markdown blog/content plugin for Rollup / WMR
  */
-function contentRollupPlugin({ cwd, prod, ...opts }) {
+function contentRollupPlugin({ root, prod, ...opts }) {
 	return {
 		name: 'content',
 		async resolveId(id, importer) {
@@ -98,7 +98,7 @@ function contentRollupPlugin({ cwd, prod, ...opts }) {
 		},
 		async load(id) {
 			if (!id.startsWith('\0content:')) return;
-			id = path.resolve(cwd || '.', id.slice(9));
+			id = path.resolve(root || '.', id.slice(9));
 
 			// const base = path.relative(cwd || '.', id);
 			const files = await tree(id);

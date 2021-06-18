@@ -4,7 +4,7 @@ import styles from './style.module.scss';
 
 export default function Home() {
 	if (typeof window === 'undefined') {
-		document.head.insertAdjacentHTML('beforeend', `<link rel="preload" as="image" href="${config.cover}">`);
+		wmrHead.elements.push(`<link rel="preload" as="image" href="${config.cover}">`);
 	}
 	return (
 		<section class="home">
