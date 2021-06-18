@@ -47,6 +47,15 @@ export async function prerender(data) {
 		const text = () => fs.readFile('dist/' + String(url).replace(/^\//, ''), 'utf-8');
 		return { text, json: () => text().then(JSON.parse) };
 	};
+	global.wmrHead = {
+		title: undefined,
+		lang: undefined,
+		elements: []
+	};
 	const { default: prerender } = await import('preact-iso/prerender');
-	return await prerender(<App {...data} />);
+	const res = await prerender(<App {...data} />);
+	return {
+		...res,
+		head: global.wmrHead
+	};
 }
