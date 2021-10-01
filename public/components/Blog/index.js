@@ -3,8 +3,8 @@ import posts from 'content:../../content/blog';
 import config from '../../config.json';
 import styles from './style.module.scss';
 
-export default function Blog({ params = {}, count = config.postsPerPage, moreText = '' }) {
-	document.title = `Blog - ${config.title}`;
+export default function Blog({ params = {}, count = config.postsPerPage, moreText = '', embedded }) {
+	if (!embedded) document.title = `Blog - ${config.title}`;
 
 	let { page = 0 } = params;
 	count = Math.min(posts.length, Math.max(0, Math.round(count || 5)));
