@@ -1,8 +1,10 @@
 import { lazy } from 'preact-iso';
 // import posts from 'content:../../content/blog';
 import '../../styles/prism.css';
+import config from '../../config.json';
 
 function DisplayBlogPost({ html, meta }) {
+	document.title = `${meta.title} - ${config.title}`;
 	const pub = new Date(meta.published);
 	const [, month, day, year] = pub.toDateString().split(' ');
 	return (

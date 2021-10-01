@@ -3,6 +3,8 @@ import config from '../../config.json';
 import styles from './style.module.scss';
 
 export default function Home() {
+	document.title = config.title;
+
 	if (typeof window === 'undefined') {
 		document.head.insertAdjacentHTML('beforeend', `<link rel="preload" as="image" href="${config.cover}">`);
 	}

@@ -4,6 +4,8 @@ import config from '../../config.json';
 import styles from './style.module.scss';
 
 export default function Blog({ params = {}, count = config.postsPerPage, moreText = '' }) {
+	document.title = `Blog - ${config.title}`;
+
 	let { page = 0 } = params;
 	count = Math.min(posts.length, Math.max(0, Math.round(count || 5)));
 	page = Math.round(page || 0);
