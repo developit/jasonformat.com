@@ -15,7 +15,7 @@ export default function Home() {
 				<h1>{config.title}</h1>
 				<p>{config.description}</p>
 			</header>
-			<Blog moreText="More Posts →" />
+			<Blog moreText="More Posts →" embedded />
 		</section>
 	);
 }
