@@ -7,11 +7,13 @@ export async function write(filename, fs) {
 	await fs.writeFile('dist/' + filename, xml);
 }
 
+const toISO = date => new Date(`${date} GMT${config.tz}`).toISOString() + config.tz.replace(/(\d\d)$/, ':$1');
+
 const Feed = ({ posts = [] }) => (
 	<feed xmlns="http://www.w3.org/2005/Atom">
 		<id>{config.origin}</id>
 		<title>{config.title}</title>
-		<updated>{new Date().toISOString()}</updated>
+		<updated>{toISO(posts[0].updated || posts[0].published)}</updated>
 		<logo>{config.origin}{config.logo}</logo>
 		{posts.map(post => <Post post={post} />)}
 	</feed>
@@ -24,10 +26,10 @@ async function Post({ post }, { fs }) {
 	return (
 		<entry>
 			<id>{post.name}</id>
-			<updated>{post.updated || post.published}</updated>
+			<updated>{toISO(post.updated || post.published)}</updated>
 			<title>{post.title}</title>
 			<link href={config.origin + '/' + post.name} />
-			{image && <image url={image} />}
+			{image && <logo>{image}</logo>}
 			<summary>{post.description}</summary>
 			<content type="html" dangerouslySetInnerHTML={{ __html: `<![CDATA[${content}]]>` }} />
 		</entry>
