@@ -65,9 +65,10 @@ async function render(vnode, context) {
 		if (i === 'children') children = value;
 		else if (i === 'dangerouslySetInnerHTML') html = value;
 		else if (value != null && (value !== false || /^ar/.test(i))) {
-			str = str + ' ' + i + (value === true ? '' : `"${escape(value)}"`);
+			str = str + ' ' + i + (value === true ? '' : `="${escape(value)}"`);
 		}
 	}
+	str = str + '>';
 	if (html) {
 		str = str + (html.__html || '');
 	} else if (children) {
