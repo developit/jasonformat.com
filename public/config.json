@@ -4,5 +4,6 @@
 	"logo": "/assets/icon.png",
 	"permalinks": "/:slug/",
 	"cover": "/assets/cover-low.jpg",
-	"postsPerPage": 5
+	"postsPerPage": 5,
+	"origin": "https://jasonformat.com"
 }
