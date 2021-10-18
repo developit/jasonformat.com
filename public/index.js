@@ -47,7 +47,7 @@ export async function prerender(data) {
 		const text = () => fs.readFile('dist/' + String(url).replace(/^\//, ''), 'utf-8');
 		return { text, json: () => text().then(JSON.parse) };
 	};
-	await (await import('./rssfeed.js')).write('rss.xml', fs);
+	await (await import('./rssfeed.js')).write('posts.rss', fs);
 	const { default: prerender } = await import('preact-iso/prerender');
 	return await prerender(<App {...data} />);
 }
