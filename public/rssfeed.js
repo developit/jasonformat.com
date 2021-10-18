@@ -2,34 +2,36 @@ import config from './config.json';
 import posts from 'content:./content/blog';
 
 export async function write(filename, fs) {
-	let xml = await render(<Feed posts={posts} />, { fs });
+	let xml = await render(<Feed filename={filename} posts={posts} />, { fs });
 	xml = '<?xml version="1.0" encoding="utf-8"?>\n' + xml;
 	await fs.writeFile('dist/' + filename, xml);
 }
 
 const toISO = date => new Date(`${date} GMT${config.tz}`).toISOString().replace('.000Z', config.tz.replace(/(\d\d)$/, ':$1'));
 
-const Feed = ({ posts = [] }) => (
+const Feed = ({ filename, posts = [] }) => (
 	<feed xmlns="http://www.w3.org/2005/Atom">
 		<id>{config.origin}/</id>
 		<title>{config.title}</title>
 		<updated>{toISO(posts[0].updated || posts[0].published)}</updated>
 		<logo>{config.origin}{config.logo}</logo>
+		<link href={config.origin + '/' + filename} rel="self" />
 		{posts.map(post => <Post post={post} />)}
 	</feed>
 );
 
 async function Post({ post }, { fs }) {
 	const html = await (await fetch(`/content/blog/${post.name}.md`)).text();
-	const { html: content, meta } = extractMeta(html);
+	let { html: content, meta } = extractMeta(html);
 	const image = meta.image || post.image;
+	if (image) content = `<img src="${escape(image)}" alt="${escape(post.title)}"><br />\n\n${content}`;
 	return (
 		<entry>
-			<id>/{post.name}</id>
+			<id>{config.origin}/{post.name}</id>
 			<updated>{toISO(post.updated || post.published)}</updated>
 			<title>{post.title}</title>
 			<link href={config.origin + '/' + post.name} />
-			{image && <logo>{image}</logo>}
+			<author><name>Jason Miller</name></author>
 			<summary>{post.description}</summary>
 			<content type="html" dangerouslySetInnerHTML={{ __html: `<![CDATA[\n${content}\n]]>` }} />
 		</entry>
