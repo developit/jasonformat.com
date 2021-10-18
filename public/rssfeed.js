@@ -44,8 +44,9 @@ function extractMeta(html) {
 }
 
 async function render(vnode, context) {
+	if (vnode == null || typeof vnode === 'boolean') return '';
 	if (typeof vnode !== 'object') return escape(String(vnode));
-	if (Array.isArray(vnode)) return Promise.all(vnode.map(v => render(v, context)));
+	if (Array.isArray(vnode)) return (await Promise.all(vnode.map(v => render(v, context)))).join('');
 	let type = vnode.type;
 	if (typeof type === 'function') {
 		let c;
