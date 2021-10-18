@@ -4,7 +4,7 @@ import posts from 'content:./content/blog';
 export async function write(filename, fs) {
 	let xml = await render(<Feed posts={posts} />, { fs });
 	xml = '<?xml version="1.0" encoding="utf-8"?>\n' + xml;
-	await fs.writeFile('build/' + filename, xml);
+	await fs.writeFile('dist/' + filename, xml);
 }
 
 const Feed = ({ posts = [] }) => (
