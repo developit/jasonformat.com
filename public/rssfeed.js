@@ -12,7 +12,7 @@ const Feed = ({ posts = [] }) => (
 		<id>{config.origin}</id>
 		<title>{config.title}</title>
 		<updated>{new Date().toISOString()}</updated>
-		<logo>{config.origin}{config.avatar}</logo>
+		<logo>{config.origin}{config.logo}</logo>
 		{posts.map(post => <Post post={post} />)}
 	</feed>
 );
