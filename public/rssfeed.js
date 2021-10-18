@@ -73,13 +73,17 @@ async function render(vnode, context) {
 			str = str + ' ' + i + (value === true ? '' : `="${escape(value)}"`);
 		}
 	}
-	str = str + '>';
+	let inner = '';
 	if (html) {
-		str = str + (html.__html || '');
+		inner = html.__html || '';
 	} else if (children) {
-		str = str + await render(children, context);
+		inner = await render(children, context);
 	}
-	str = str + '</' + type + '>';
+	if (inner) {
+		str = str + '>' + inner + '</' + type + '>';
+	} else {
+		str = str + ' />';
+	}
 	return str;
 }
 
