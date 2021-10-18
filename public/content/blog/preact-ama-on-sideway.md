@@ -6,7 +6,7 @@ updated: 7/7/2017, 12:39:27 PM
 _created: 7/7/2017, 12:34:36 PM
 ---
 
-> 🎤 This was originally published as [**"Preact.js with Jason Miller"**](https://sideway.com/room/aY) on Sideway.
+> 🎤 This was originally published as [Preact.js with Jason Miller](https://sideway.com/room/aY) on Sideway.
 
 ---
 
