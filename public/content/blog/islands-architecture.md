@@ -13,6 +13,7 @@ _created: 8/6/2020, 9:39:51 PM
 </div>
 
 I’ve struggled to find references to this online, but heard the name used multiple times this year when describing the approach outlined here.
+To the best of my knowledge, the "Component Islands" pattern was coined by Etsy's frontend architect [Katie Sylor-Miller](https://twitter.com/ksylor) during a meeting we had in 2019.
 
 The general idea of an “Islands” architecture is deceptively simple: render HTML pages on the server, and inject placeholders or slots around highly dynamic regions. These placeholders/slots contain the server-rendered HTML output from their corresponding widget. They denote regions that can then be "hydrated" on the client into small self-contained widgets, reusing their server-rendered initial HTML.
 
