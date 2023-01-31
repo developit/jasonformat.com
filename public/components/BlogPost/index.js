@@ -6,9 +6,10 @@ import config from '../../config.json';
 function DisplayBlogPost({ html, meta }) {
 	document.title = `${meta.title} - ${config.title}`;
 	const head = self.wmr && self.wmr.ssr && self.wmr.ssr.head;
-	if (meta && meta.description && head) {
+	const desc = meta.meta_description || meta.description;
+	if (desc && head) {
 		head.clear();
-		head.add({type:'meta',props:{name:'description',content:meta.description});
+		head.add({type:'meta',props:{name:'description',content:desc});
 	}
 	const pub = new Date(meta.published);
 	const [, month, day, year] = pub.toDateString().split(' ');
