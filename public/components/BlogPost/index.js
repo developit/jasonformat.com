@@ -5,6 +5,11 @@ import config from '../../config.json';
 
 function DisplayBlogPost({ html, meta }) {
 	document.title = `${meta.title} - ${config.title}`;
+	//const head = self.wmr && self.wmr.ssr && self.wmr.ssr.head;
+	//if (meta.description && head && head.elements) {
+	//	head.elements.clear();
+	//	head.elements.add({ type: 'meta', props: { name: 'description', content: meta.description } });
+	//}
 	const pub = new Date(meta.published);
 	const [, month, day, year] = pub.toDateString().split(' ');
 	return (
