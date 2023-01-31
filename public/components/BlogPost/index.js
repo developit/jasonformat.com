@@ -18,7 +18,7 @@ function DisplayBlogPost({ html, meta }) {
 			<footer>
 				<h5>There used to be comments here.</h5>
 				<p>
-					Instead, <a href="https://twitter.com/_developit">tweet me</a> your comments.
+					Instead, <a href="https://mastodon.social/@developit">toot</a> or <a href="https://twitter.com/_developit">tweet me</a> your comments.
 				</p>
 			</footer>
 		</div>
